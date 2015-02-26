@@ -2,6 +2,7 @@ FROM centos:6
 
 MAINTAINER Jackson Argo <jackson@jacksonargo.com>
 
+ENV NVIDIA_VERSION=340.29
 ENV CUDA_VERSION=6.5
 
 # Install EPEL repo
@@ -14,5 +15,5 @@ RUN rpm -i http://developer.download.nvidia.com/compute/cuda/repos/rhel6/x86_64/
 RUN yum -y update
 
 # Install Nvidia Driver
-RUN yum -y install xorg-x11-drv-nvidia
+RUN yum -y install xorg-x11-drv-nvidia-${NVIDIA_VERSION}
 
